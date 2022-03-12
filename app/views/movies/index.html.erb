@@ -1,0 +1,67 @@
+
+
+<div class="home-banner">
+  <h1>CINEMA MY</h1>
+  <p class="fs-6">
+  <span id="banner-typed-text"></span>
+</p>
+</div>
+
+
+    <div class="container pt-5">
+      <div class="row">
+
+         <div class="col-3">
+             <% if @query %>
+               <p><%= @query %></strong>. <%= @movies.count %>.<%= Movie.count %></p>
+             <% else %>
+             <p class= "btn btn-outline-danger" >Peliculas disponibles:<%= Movie.count %></p>
+             <% end %>
+        </div>
+
+
+
+        <div class="col-6">
+                <form class="d-flex" action="/movies" method="get">
+
+                  <input class="form-control me-2 btn-outline" type="text" name="query" placeholder="Busca tu peli" aria-label="Search">
+                  <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                  
+                </form>
+
+
+       </div>
+
+        <div class="col-3">
+
+                  <% if user_signed_in? %>
+
+                  <div class="container justify-content-center">
+                <% if policy(Movie).new? %>
+                <%= link_to 'Crear', new_movie_path, class: "btn btn-outline-info"  %>
+                <%end %>
+                </div>
+                <%end %>
+
+
+
+            </div>
+      </div>
+    </div>
+
+      <div class="container pt-5 bt-5">
+          <div class="movie-container">
+
+                <% @movies.each do |movie|  %>
+                <% if policy(movie).show? %>
+                <%= link_to movie_path(movie) do%>
+
+                <div class="card-category mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url(<%= movie.image %>)">
+                <h4><%= movie.title %></h4>
+                </div>
+                  <% end  %>
+                <% end  %>
+             <% end  %>
+
+          </div>
+      </div>

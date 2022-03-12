@@ -1,0 +1,30 @@
+<div class="container py-5 px-5">
+
+
+<h1>DEJA TU COMENTARIO ACA </h1>
+
+      <%= simple_form_for [ @movie, @review ] do |form| %>
+           <div class="text-primary">
+
+      </div>
+
+        <%= form.input :image %>
+        <%= form.input :title %>
+        <%= form.input :rating %>
+        <%= form.input :content %>
+
+        <%= form.submit "Submit review", class: "btn btn-primary" %>
+
+      <% end  %>
+
+
+
+
+
+
+</div>
+<br>
+
+<br>
+
+<%= link_to 'Volver peli', movies_path, class: "btn btn-primary" %>

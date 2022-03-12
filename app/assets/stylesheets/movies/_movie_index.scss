@@ -1,0 +1,38 @@
+.movie-container {
+  display: flex;
+}
+
+.movie-container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  a {
+    text-decoration: none;
+  }
+}
+
+@media(max-width: 1200px) {
+.movie-container {
+  grid-template-columns: 1fr 1fr ;
+}
+}
+
+
+@media(max-width: 992px) {
+.movie-container {
+  grid-template-columns: 1fr 1fr;
+}
+}
+
+@media(max-width: 768px) {
+.movie-container {
+  grid-template-columns: 1fr ;
+}
+}
+
+@media(max-width: 576px) {
+.movie-container {
+  grid-template-columns: 1fr;
+}
+}

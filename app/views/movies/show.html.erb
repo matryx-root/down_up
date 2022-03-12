@@ -1,0 +1,73 @@
+<div class="container">
+          <h1 class="text-center font-weight-bold py-5 px-5">
+        <%= @movie.title %>
+
+        <p>  <%="*" * @movie.rating  %> </p> </h1>
+
+            <div class="movie-img text-center">
+
+              <%= image_tag @movie.image, width: 400, height: 300, crop: :fill %>
+              <p><%= @movie.description %></p>
+            </div>
+
+</div>
+
+
+      <div class="container"></div>
+          <div class="text-center">
+
+                <%= link_to 'Volver', movies_path, class: "btn btn-primary fa fa-history" %>
+              <% if user_signed_in? %>
+
+                        <% if policy(@movie).update? %>
+                          <%= link_to 'Modificar', edit_movie_path(@movie), class: "btn btn-warning" %>
+                        <% end %>
+
+                        <% if policy(@movie).destroy? %>
+                          <%= link_to 'Eliminar', movie_path(@movie), method: :delete, data: { confirm: "estas seguro?" }, class: "btn btn-danger" %>
+                        <% end %>
+
+                        <% if policy(Movie).new? %>
+                          <%= link_to 'Crear', new_movie_path, class: "btn btn-info"  %>
+                        <% end %>
+                 <% end %>
+
+
+
+
+
+
+          </div>
+      </div>
+
+
+
+        <div class="container">
+
+
+
+                  <h2> "Logueate y deja tu comentario" <% if user_signed_in? %><%= link_to 'Comentar',  new_movie_review_path(@movie) %><% end %></h2>
+
+
+                          <% @movie.reviews.each do |review| %>
+
+                            <li class="list-group-item"><%= review.content %>
+
+
+                    <% if user_signed_in? %>
+
+                            <% if policy(@movie).destroy? %>
+                          <%= link_to 'Eliminar', review_path(review), method: :delete, data: {confirm: "borrar?"} %>
+                          <% end %>
+
+                          <% if policy(@movie).update? %>
+                          <%= link_to 'Editar', edit_review_path(review)%>
+                          <% end %>
+                          </li>
+
+
+                            <% end %>
+
+                  <% end %>
+
+      </div>

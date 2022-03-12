@@ -1,0 +1,11 @@
+<div class="container text-center">
+
+        <h2 class="font-weigth-bold py-5">edita tu pelicula</h2>
+        <%= link_to 'back', movies_path, class: "btn btn-info" %>
+              <div class="bg-white p-3 rounded shadow-sm">
+              <%= render 'form' %><i class="fa fa-pencil"></i>
+              </div>
+
+         <%= link_to 'Volver peli', movie_path(), class: "btn btn-primary" %>
+
+</div>

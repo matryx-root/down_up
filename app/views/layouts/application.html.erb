@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Up</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= render 'shared/flashes' %>
+  </head>
+
+  <body>
+  <div class="container">
+
+
+      <hr>
+      <%= render 'shared/navbar' %>
+      <%= yield %>
+
+     <script>
+        //var nombre= prompt("escribe tu nombre")
+        //var apellido= prompt("escribe tu apellido")
+        //document.write("<p>");
+        //document.write("Gracias, tu nombre es: " + nombre + " " + apellido);
+      </script>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

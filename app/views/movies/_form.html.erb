@@ -1,0 +1,13 @@
+<div class="container text-center form-group">
+<%= simple_form_for @movie do |f| %>
+<%= f.input :image %>
+<%= f.input :title %>
+<%= f.input :genre %>
+<%= f.input :description %>
+<%= f.input :rating %>
+
+    <div class="py-4">
+    <%= f.submit 'Enviar', class: 'btn btn-primary btn-block' %>
+    </div>
+<% end  %>
+</div>
